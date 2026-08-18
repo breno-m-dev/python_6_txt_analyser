@@ -6,13 +6,12 @@ class TxtAnalyser:
     
     
     def __init__(self, file_path):
-        """
+        r"""
         Args:
             file_path(str): full path to the .txt file including its
-            name. Example: "C:\Users\Username\Downloads\my_txt.txt"
+            name. Example: C:\Users\Username\Downloads\my_txt.txt
         """
         self.file_path = file_path
-        self.file = open(file_path, "r+")
         self.sorted_words = dict()
 
     def get_file_path(self):
@@ -32,26 +31,27 @@ class TxtAnalyser:
             words present in the .txt file, and the values are each word
             occurrence.
         """
-        for line in self.file:
-           
-            for word in line.split():
-                
-                if word in self.sorted_words.keys():
-                    self.sorted_words[word] += 1
-                else:
-                    self.sorted_words[word] = 1
+        with open(self.file_path,"r") as file:
+            for line in file:
+            
+                for word in line.split():
+                    
+                    if word in self.sorted_words.keys():
+                        self.sorted_words[word] += 1
+                    else:
+                        self.sorted_words[word] = 1
 
-        self.sorted_words = dict(
-            sorted(
-                self.sorted_words.items(), key=lambda item: item[1], 
-                reverse = True
-            )
-        )         
+            self.sorted_words = dict(
+                sorted(
+                    self.sorted_words.items(), key=lambda item: item[1], 
+                    reverse = True
+                )
+            )         
         
         return self.sorted_words
 
-    def txt_close(self):
-        """
-        closes the opened .txt
-        """
-        self.file.close()
+    # def txt_close(self):
+    #     """
+    #     closes the opened .txt
+    #     """
+    #     self.file.close()

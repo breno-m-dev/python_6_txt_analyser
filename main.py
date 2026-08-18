@@ -9,7 +9,7 @@ def main():
     txt = txt_analyser.TxtAnalyser("theTXT.txt")
     my_dict = txt.count_words()
     print(my_dict)
-    txt.txtClose()
+    
 
 
 if __name__ == "__main__":
