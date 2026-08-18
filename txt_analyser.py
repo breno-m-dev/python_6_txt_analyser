@@ -3,7 +3,7 @@ class TxtAnalyser:
     Class TxtAnalyser is used to read .txt files and count how many
     times each word occurs in the file. It also organizes them
     """
-    sorted_words = dict()
+    
     
     def __init__(self, file_path):
         """
@@ -13,15 +13,16 @@ class TxtAnalyser:
         """
         self.file_path = file_path
         self.file = open(file_path, "r+")
+        self.sorted_words = dict()
 
-    def getFilePath(self):
+    def get_file_path(self):
         """
         Returns: 
             file_path(str): path of the .txt file.
         """
         return self.file_path
     
-    def countWords(self):
+    def count_words(self):
         """
         Reads the .txt file, saves each word in a dictionary,
         and how many times each occurred in the .txt file. And organizes
@@ -49,7 +50,7 @@ class TxtAnalyser:
         
         return self.sorted_words
 
-    def txtClose(self):
+    def txt_close(self):
         """
         closes the opened .txt
         """

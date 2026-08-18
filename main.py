@@ -7,7 +7,7 @@ def main():
     The most used word to the least used word.
     """
     txt = txt_analyser.TxtAnalyser("theTXT.txt")
-    my_dict = txt.countWords()
+    my_dict = txt.count_words()
     print(my_dict)
     txt.txtClose()
 
